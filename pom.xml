@@ -31,6 +31,13 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
+                                <!-- Delete old deployment -->
+                                <delete dir="C:/apache-tomcat-10.1.52/webapps/BTrack"/>
+                                <delete file="C:/apache-tomcat-10.1.52/webapps/BTrack.war"/>
+                                
+                                <sleep seconds="2"/>
+                                
+                                 <!-- ✅ Copy new WAR -->
                                 <copy file="target/BTrack.war"
                                       todir="C:/apache-tomcat-10.1.52/webapps"/>
                             </target>

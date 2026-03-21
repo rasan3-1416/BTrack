@@ -6,6 +6,6 @@
     <title>Btrack</title>
   </head>
   <body>
-    <h1>Login Pagee</h1>
+    <h1>Login Page</h1>
   </body>
 </html>
