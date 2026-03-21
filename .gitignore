@@ -1,0 +1,12 @@
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+
+# Build files
+target/
+*.war
+
+# Logs
+*.log

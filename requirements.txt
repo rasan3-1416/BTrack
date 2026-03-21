@@ -1,0 +1,14 @@
+java 25.0.2 2026-01-20 LTS
+Note: Add System variable in Enviroment Variables
+name: JAVA_HOME location: C:\Program Files\Java\jdk-25.0.2
+
+Apache Maven 3.9.14 (996c630dbc656c76214ce58821dcc58be960875b)
+Note: Add System variable in Enviroment Variables and path for user Variables
+name: MAVEN_HOME location: C:\Apache\apache-maven-3.9.14
+
+apache-tomcat-10.1.52
+location: c:\apache-tomcat-10.1.52
+
+VsCode Extensions
+1. Extension Pack for java
+2. Oracle SQL Developer Extension for VSCode
