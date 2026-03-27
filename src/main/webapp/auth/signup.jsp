@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Tailwind CDN & Custom Config -->
     <%@ include file="../includes/core/tailwind.jsp" %>
-    <title>BTrack</title>
+    <title>BTrack - sign up</title>
   </head>
   <body class="bg-alternative">
     <section class="flex justify-center items-center h-[100vh]">
-      <div class="w-[320px] md:w-[400px] bg-white rounded-md">
+      <div class="w-[320px] sm:w-[400px] bg-white rounded-md">
         <div class="bg-black px-4 py-4 rounded-t-md">
           <img
             class="h-[30px] md:h-[40px]"
@@ -53,7 +53,9 @@
             </button>
             <div class="flex space-x-2 text-sm">
               <p>Already have an account?</p>
-              <a class="underline" href="./login">Log in</a>
+              <a class="underline" href="<%= request.getContextPath() %>/login"
+                >Log in</a
+              >
             </div>
           </form>
         </div>

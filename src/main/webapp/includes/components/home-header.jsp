@@ -8,12 +8,14 @@
         alt="BTrack Logo"
       />
       <div class="flex space-x-4">
-        <a class="px-3 py-1 md:px-4 md:py-2 rounded-md bg-primary" href="signup"
+        <a
+          class="px-3 py-1 md:px-4 md:py-2 rounded-md bg-primary"
+          href="<%= request.getContextPath() %>/signup"
           >SignUp</a
         >
         <a
           class="px-3 py-1 md:px-4 md:py-2 rounded-md bg-secondary"
-          href="./login"
+          href="<%= request.getContextPath() %>/login"
           >Login</a
         >
       </div>

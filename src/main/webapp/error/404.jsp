@@ -15,9 +15,9 @@
       >
         <img class="w-[280px]" src="./img/404.png" alt="404 Icon" />
         <div class="flex flex-col items-center md:items-start gap-y-3">
-          <h1 class="text-[5rem] font-bold">404</h1>
+          <h2 class="text-[5rem] font-bold">404</h2>
           <p class="font-semibold">
-            The page is missing or the link incorrect.
+            The page is missing or the link is incorrect.
           </p>
 
           <a
