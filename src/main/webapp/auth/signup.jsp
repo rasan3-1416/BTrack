@@ -13,17 +13,29 @@
         <div class="bg-black px-4 py-4 rounded-t-md">
           <img
             class="h-[30px] md:h-[40px]"
-            src="./img/logo.png"
+            src="<%= request.getContextPath() %>/img/logo.png"
             alt="BTrack Logo"
           />
         </div>
         <div class="p-4 space-y-4">
+          <% String error = (String) request.getAttribute("error");
+          String nameValue = (String) request.getAttribute("name");
+          String emailValue = (String) request.getAttribute("email");
+          if (error != null) { %>
+          <div class="bg-red-100 text-red-700 p-2 rounded">
+            <%= error %>
+          </div> <% } %>
           <h2 class="text-2xl font-bold">Sign up</h2>
-          <form class="space-y-4" action="signup" method="post">
+          <form
+            class="space-y-4"
+            action="<%= request.getContextPath() %>/signup"
+            method="post"
+          >
             <input
               type="text"
               name="name"
               placeholder="Full Name"
+              value="<%= nameValue != null ? nameValue : "" %>"
               class="w-full p-2 border rounded"
             />
 
@@ -31,6 +43,7 @@
               type="email"
               name="email"
               placeholder="Email"
+              value="<%= emailValue != null ? emailValue : "" %>"
               class="w-full p-2 border rounded"
             />
 
@@ -48,7 +61,10 @@
               class="w-full p-2 border rounded"
             />
 
-            <button class="bg-primary text-white px-4 py-2 rounded-md">
+            <button
+              class="bg-primary text-white px-4 py-2 rounded-md"
+              type="submit"
+            >
               Sign Up
             </button>
             <div class="flex space-x-2 text-sm">

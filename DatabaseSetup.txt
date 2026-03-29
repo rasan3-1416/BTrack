@@ -1,0 +1,133 @@
+# 🧱 Oracle DB Setup + Connection (Clean Workflow)
+
+## 1️⃣ Run Docker Container
+
+```bash
+docker run -d --name oracle-xe \
+  -p 1521:1521 \
+  -e ORACLE_PASSWORD=MyStrongPass123 \
+  gvenzl/oracle-xe:latest
+```
+
+Wait until DB is ready:
+
+```bash
+docker logs -f oracle-xe
+```
+
+---
+
+## 2️⃣ Connect as SYSTEM (Admin)
+
+Connection details:
+
+```
+Username: system
+Password: MyStrongPass123
+Host: localhost
+Port: 1521
+Service: XEPDB1
+```
+
+Check container:
+
+```sql
+SHOW CON_NAME;
+-- Must be XEPDB1
+```
+
+If not:
+
+```sql
+ALTER SESSION SET CONTAINER = XEPDB1;
+```
+
+---
+
+## 3️⃣ Create Application User
+
+```sql
+CREATE USER btrack_user IDENTIFIED BY pass1234;
+
+GRANT CONNECT, RESOURCE TO btrack_user;
+GRANT CREATE TABLE, CREATE SEQUENCE, CREATE VIEW TO btrack_user;
+
+ALTER USER btrack_user QUOTA UNLIMITED ON USERS;
+```
+
+---
+
+## 4️⃣ Create New Connection (App User)
+
+```
+Username: btrack_user
+Password: pass1234
+Host: localhost
+Port: 1521
+Service: XEPDB1
+```
+
+Verify:
+
+```sql
+SELECT USER FROM dual;
+-- Should return BTRACK_USER
+```
+
+---
+
+## 5️⃣ Create Tables (Run as btrack_user)
+
+```sql
+CREATE TABLE roles (
+    id NUMBER PRIMARY KEY,
+    role_name VARCHAR2(20) UNIQUE NOT NULL
+);
+
+INSERT INTO roles VALUES (1, 'ADMINISTRATOR');
+INSERT INTO roles VALUES (2, 'ADMIN');
+INSERT INTO roles VALUES (3, 'DEVELOPER');
+
+CREATE TABLE users (
+    id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR2(100) NOT NULL,
+    email VARCHAR2(150) UNIQUE NOT NULL,
+    password VARCHAR2(255) NOT NULL,
+    role_id NUMBER DEFAULT 3,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (role_id) REFERENCES roles(id)
+);
+```
+
+---
+
+## 6️⃣ Test Insert
+
+```sql
+INSERT INTO users (name, email, password)
+VALUES ('Test User', 'test@example.com', '123');
+
+SELECT * FROM users;
+```
+
+---
+
+## 7️⃣ Java DB Connection
+
+```java
+private static final String URL = "jdbc:oracle:thin:@localhost:1521/XEPDB1";
+private static final String USERNAME = "btrack_user";
+private static final String PASSWORD = "pass1234";
+```
+
+---
+
+# ✅ Rules to Remember
+
+* Use SYSTEM → only for setup (users, quota)
+* Use btrack_user → for tables and app
+* Always use XEPDB1 (not CDB$ROOT)
+* Tables belong to the user (schema)
+* Quota = storage, not permissions
+
+---

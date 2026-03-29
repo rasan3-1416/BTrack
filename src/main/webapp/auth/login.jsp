@@ -13,13 +13,17 @@
         <div class="bg-black px-4 py-4 rounded-t-md">
           <img
             class="h-[30px] md:h-[40px]"
-            src="./img/logo.png"
+            src="<%= request.getContextPath() %>/img/logo.png"
             alt="BTrack Logo"
           />
         </div>
         <div class="p-4 space-y-4">
           <h2 class="text-2xl font-bold">Log in</h2>
-          <form class="space-y-4" action="signup" method="post">
+          <form
+            class="space-y-4"
+            action="<%= request.getContextPath() %>/login"
+            method="post"
+          >
             <input
               type="email"
               name="email"
