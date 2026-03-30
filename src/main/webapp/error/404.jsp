@@ -3,7 +3,7 @@
 <html>
   <head>
     <!-- Tailwind CDN & Custom Config -->
-    <%@ include file="../includes/core/tailwind.jsp" %>
+    <%@ include file="../includes/core/assets.jsp" %>
     <title>404 - Not Found</title>
   </head>
   <body class="bg-alternative">

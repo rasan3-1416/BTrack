@@ -4,19 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Tailwind CDN & Custom Config -->
-    <%@ include file="../includes/core/tailwind.jsp" %>
+    <%@ include file="../includes/core/assets.jsp" %>
     <title>BTrack - sign up</title>
   </head>
   <body class="bg-alternative">
     <section class="flex justify-center items-center h-[100vh]">
-      <div class="w-[320px] sm:w-[400px] bg-white rounded-md">
-        <div class="bg-black px-4 py-4 rounded-t-md">
-          <img
-            class="h-[30px] md:h-[40px]"
-            src="<%= request.getContextPath() %>/img/logo.png"
-            alt="BTrack Logo"
-          />
-        </div>
+      <div class="w-[320px] sm:w-[400px] bg-white rounded-md overflow-hidden">
+        <%@ include file="../includes/components/logo.jsp" %>
         <div class="p-4 space-y-4">
           <% String error = (String) request.getAttribute("error");
           String nameValue = (String) request.getAttribute("name");
@@ -75,12 +69,7 @@
             </div>
           </form>
         </div>
-        <div
-          class="bg-black px-4 py-4 flex justify-between text-xs text-white/50 rounded-b-md"
-        >
-          <p>Powered by @rasan3.1416 2026</p>
-          <p>v 1.0.0</p>
-        </div>
+        <%@ include file="../includes/components/creator.jsp" %>
       </div>
     </section>
   </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Tailwind CDN & Custom Config -->
-    <%@ include file="includes/core/tailwind.jsp" %>
+    <%@ include file="includes/core/assets.jsp" %>
     <title>BTrack</title>
   </head>
   <body>

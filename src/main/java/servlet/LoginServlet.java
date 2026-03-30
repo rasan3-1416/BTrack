@@ -41,6 +41,9 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
 
+            System.out.println("Session created at: " + new java.util.Date(session.getCreationTime()));
+            System.out.println("Max inactive interval: " + session.getMaxInactiveInterval() + " seconds");
+
             res.sendRedirect(req.getContextPath() + "/dashboard");
 
         } else {
