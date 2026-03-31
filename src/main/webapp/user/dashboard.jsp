@@ -10,7 +10,7 @@
   <body class="bg-alternative">
     <section class="h-screen w-screen overflow-hidden">
       <div
-        class="w-[calc(100vw+260px)] md:w-screen flex transition-all duration-500 ease-in-out ml-[-260px] md:ml-0"
+        class="w-[calc(100vw+260px)] flex transition-all duration-500 ease-in-out ml-[-260px] md:ml-0"
         id="view"
       >
         <%@ include file="../includes/layout/sidebar.jsp" %>
