@@ -8,35 +8,32 @@
     <title>BTrack - Dashboard</title>
   </head>
   <body class="bg-alternative">
-    <section class="flex h-screen w-screen overflow-hidden">
-
-      <%@ include file="../includes/layout/sidebar.jsp" %>
-
-      <main class="flex-1 relative transition-all duration-500 ease-in-out" id="mainView">
-        <div class="w-full h-full " >
+    <section class="h-screen w-screen overflow-hidden">
+      <div
+        class="w-[calc(100vw+260px)] md:w-screen flex transition-all duration-500 ease-in-out ml-[-260px] md:ml-0"
+        id="view"
+      >
+        <%@ include file="../includes/layout/sidebar.jsp" %>
+        <main class="w-full" id="mainView">
           <!-- Navigation -->
-          <nav class="h-[60px] md:h-[65px] bg-white border-b">
-              <div class="px-4 md:px-6 lg:px-8 flex justify-between items-center h-full">
-                  <!-- Hamburger Btn -->
-                <button
-                  id="sidebarToggle"
-                  type="button"
-                  class="text-[1.5rem]"
-                >
+            <nav class="h-[60px] md:h-[65px] bg-white border-b">
+              <div
+                class="px-4 md:px-6 lg:px-8 flex justify-between items-center h-full"
+              >
+                <!-- Hamburger Btn -->
+                <button id="sidebarToggle" type="button" class="text-[1.5rem]">
                   <i class="fa-solid fa-bars"></i>
                 </button>
                 <!-- Hamburger btn -->
-                  <div class="flex flex-col">
-                    <span>${user.name}</span>
-                    <span>${user.email}</span>
-                  </div>
+                <div class="flex flex-col">
+                  <span>${user.name}</span>
+                  <span>${user.email}</span>
+                </div>
               </div>
-          </nav>
-          <!-- End Navigation -->
-        </div>
-      </main>
-        
-        
+            </nav>
+            <!-- End Navigation -->
+        </main>
+      </div>
     </section>
     <script src="<%= request.getContextPath() %>/js/main.js"></script>
   </body>

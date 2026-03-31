@@ -1,13 +1,14 @@
-// Side controls
-let sidebar = document.getElementById("sidebar");
+// view controls
 let sidebarToggle = document.getElementById("sidebarToggle");
-let mainView = document.getElementById("mainView");
+let view = document.getElementById("view");
 
+if (window.innerWidth >= 768) {
+  view.classList.remove("w-[calc(100vw+260px)]");
+}
 sidebarToggle.addEventListener("click", function () {
   if (window.innerWidth <= 768) {
-    sidebar.classList.toggle("ml-0");
+    view.classList.toggle("ml-0");
   } else {
-    sidebar.classList.toggle("md:ml-[-260px]");
+    view.classList.toggle("md:ml-[-260px]");
   }
-  // mainView.classList.toggle("left-[260px]");
 });

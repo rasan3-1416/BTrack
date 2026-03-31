@@ -1,9 +1,6 @@
 <!-- Sidebar -->
-<aside
-  class="min-w-[260px] border-r transition-all duration-500 ease-in-out ml-[-260px] md:ml-0"
-  id="sidebar"
->
-  <div class="flex flex-col h-screen bg-white shrink-0">
+<aside class="min-w-[260px] bg-white border-r" id="sidebar">
+  <div class="flex flex-col shrink-0 h-screen">
     <%@ include file="../components/logo.jsp" %>
 
     <!-- Menu -->
@@ -35,8 +32,10 @@
 
     <!-- Footer -->
     <div class="mt-auto border-t">
-      <%@ include file="../components/user.jsp" %> <%@ include
-      file="../components/creator.jsp" %>
+      <!-- User info -->
+      <%@ include file="../components/user.jsp" %>
+      <!-- Creator info -->
+      <%@ include file="../components/creator.jsp" %>
     </div>
   </div>
 </aside>
