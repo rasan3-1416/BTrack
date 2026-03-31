@@ -41,7 +41,10 @@ public class UserDAO {
 
     public User loginUser(String email, String password) {
 
-        String sql = "SELECT id, name, email, password, role_id FROM users WHERE email = ?";
+        String sql = "SELECT u.id, u.name, u.email, u.password, u.role_id, r.role_name " +
+             "FROM users u " +
+             "JOIN roles r ON u.role_id = r.id " +
+             "WHERE u.email = ?";
 
         try (Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql)) {
@@ -61,7 +64,7 @@ public class UserDAO {
                     user.setName(rs.getString("name"));
                     user.setEmail(rs.getString("email"));
                     user.setRoleId(rs.getInt("role_id"));
-
+                    user.setRole(rs.getString("role_name"));
                     return user;
                 }
             }

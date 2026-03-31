@@ -12,7 +12,7 @@
       class="bg-[url(./img/bg.jpg)] bg-center bg-cover bg-no-repeat h-screen"
     >
       <!-- Navbar Start -->
-      <%@ include file="includes/components/home-header.jsp" %>
+      <%@ include file="includes/layout/home-header.jsp" %>
       <!-- Navbar End -->
       <h1>Home Page</h1>
     </section>

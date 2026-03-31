@@ -6,6 +6,7 @@ public class User {
     private String name;
     private String email;
     private int roleId;
+    private String role;
 
     // Getters & Setters methods for private attributes
 
@@ -40,4 +41,13 @@ public class User {
     public void setRoleId(int roleId) {
         this.roleId = roleId;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 }

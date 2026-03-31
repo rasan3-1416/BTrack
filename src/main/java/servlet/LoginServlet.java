@@ -38,13 +38,18 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             // LOGIN SUCCESS
 
-            HttpSession session = req.getSession();
+            // destroy old session
+            HttpSession oldSession = req.getSession(false);
+            if (oldSession != null) {
+                oldSession.invalidate();
+            }
+
+            // create new session
+            HttpSession session = req.getSession(true);
             session.setAttribute("user", user);
+            session.setMaxInactiveInterval(24 * 60 * 60);
 
-            System.out.println("Session created at: " + new java.util.Date(session.getCreationTime()));
-            System.out.println("Max inactive interval: " + session.getMaxInactiveInterval() + " seconds");
-
-            res.sendRedirect(req.getContextPath() + "/dashboard");
+            res.sendRedirect(req.getContextPath() + "/app?page=dashboard");
 
         } else {
             // LOGIN FAILED
