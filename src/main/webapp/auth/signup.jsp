@@ -30,7 +30,7 @@
               name="name"
               placeholder="Full Name"
               value="<%= nameValue != null ? nameValue : "" %>"
-              class="w-full p-2 border rounded"
+              class="w-full p-2 border rounded outline-none"
             />
 
             <input
@@ -38,21 +38,21 @@
               name="email"
               placeholder="Email"
               value="<%= emailValue != null ? emailValue : "" %>"
-              class="w-full p-2 border rounded"
+              class="w-full p-2 border rounded outline-none"
             />
 
             <input
               type="password"
               name="password"
               placeholder="Password"
-              class="w-full p-2 border rounded"
+              class="w-full p-2 border rounded outline-none"
             />
 
             <input
               type="password"
               name="confirmPassword"
               placeholder="Confirm Password"
-              class="w-full p-2 border rounded"
+              class="w-full p-2 border rounded outline-none"
             />
 
             <button

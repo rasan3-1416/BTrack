@@ -22,14 +22,14 @@
               type="email"
               name="email"
               placeholder="Email"
-              class="w-full p-2 border rounded"
+              class="w-full p-2 border rounded outline-none"
             />
 
             <input
               type="password"
               name="password"
               placeholder="Password"
-              class="w-full p-2 border rounded"
+              class="w-full p-2 border rounded outline-none"
             />
 
             <button class="bg-secondary text-white px-4 py-2 rounded-md">
