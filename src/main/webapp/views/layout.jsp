@@ -17,10 +17,9 @@
         <main class="w-full" id="mainView">
           <%@ include file="../includes/layout/nav.jsp" %>
 
-          <div>
-            <jsp:include page="${contentPage}" />
-          </div>
+          <jsp:include page="${contentPage}" />
         </main>
+        <%@ include file="../includes/components/ui/modal.jsp" %>
       </div>
     </section>
     <script src="<%= request.getContextPath() %>/js/main.js"></script>

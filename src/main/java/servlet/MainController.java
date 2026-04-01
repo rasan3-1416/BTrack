@@ -13,11 +13,11 @@ public class MainController extends HttpServlet {
         throws ServletException, IOException {
 
         HttpSession session = req.getSession(false);
-
-        if (session != null) {
-            System.out.println("Session ID: " + session.getId());
-            System.out.println("User: " + session.getAttribute("user"));
-            System.out.println("Creation Time: " + new java.util.Date(session.getCreationTime()));
+        
+        // Check if user is logged in or not
+        if (session == null || session.getAttribute("user") == null) {
+            res.sendRedirect(req.getContextPath() + "/login");
+            return;
         }
 
         String page = req.getParameter("page");
@@ -27,22 +27,30 @@ public class MainController extends HttpServlet {
         }
 
         String contentPage;
+        String buttonLabel = "Create Project";
+        String buttonAction = req.getContextPath() + "/views/forms/projectForm.jsp";
 
         switch (page) {
-            case "users":
-                contentPage = "/views/users.jsp";
-                break;
-            case "settings":
-                contentPage = "/views/settings.jsp";
+            case "bugs":
+                contentPage = "/views/bugs.jsp";
+                buttonLabel = "Create Bug";
+                buttonAction = req.getContextPath() + "/views/forms/bugForm.jsp";
                 break;
             case "projects":
                 contentPage = "/views/projects.jsp";
                 break;
+            case "settings":
+                contentPage = "/views/settings.jsp";
+                break;
             default:
                 contentPage = "/views/dashboard.jsp";
+                buttonLabel = "Create Project";
+                buttonAction = req.getContextPath() + "/views/forms/projectForm.jsp";
         }
 
         req.setAttribute("contentPage", contentPage);
+        req.setAttribute("buttonLabel", buttonLabel);
+        req.setAttribute("buttonAction", buttonAction);
         req.getRequestDispatcher("/views/layout.jsp").forward(req, res);
     }
 }

@@ -10,7 +10,7 @@
   <body class="bg-alternative">
     <section class="flex justify-center items-center h-[100vh]">
       <div class="w-[320px] sm:w-[400px] bg-white rounded-md overflow-hidden">
-        <%@ include file="../includes/components/logo.jsp" %>
+        <%@ include file="../includes/components/ui/logo.jsp" %>
         <div class="p-4 space-y-4">
           <% String error = (String) request.getAttribute("error");
           String nameValue = (String) request.getAttribute("name");
@@ -69,7 +69,7 @@
             </div>
           </form>
         </div>
-        <%@ include file="../includes/components/creator.jsp" %>
+        <%@ include file="../includes/components/ui/creator.jsp" %>
       </div>
     </section>
   </body>

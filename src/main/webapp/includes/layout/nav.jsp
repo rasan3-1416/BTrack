@@ -5,6 +5,10 @@
       <i class="fa-solid fa-bars"></i>
     </button>
     <!-- Hamburger btn -->
-    <%@ include file="../components/user.jsp" %>
+    <div class="flex items-center gap-x-4 md:gap-x-6">
+      <%@ include file="../components/ui/notification.jsp" %>
+      <!-- /// -->
+      <%@ include file="../components/ui/button.jsp" %>
+    </div>
   </div>
 </nav>
